@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL AI Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <span class="logo-mark"><i class="ti ti-database"></i></span>
+            <span class="logo-text">SQL AI Agent</span>
+        </div>
+    </header>
+    <main class="page">
+        <section class="hero">
+            <h1><i class="ti ti-database"></i>Ask your database a question.</h1>
+            <p>Type a question in plain English. The agent writes the SQL, runs it against your database, and returns the results below.</p>
+            <div class="hero-rule"></div>
+        </section>
+        <section class="query-card">
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+            <div class="input-row">
+                <input type="text" id="question" placeholder="e.g. how many students were absent yesterday?">
+                <button id="history-btn" type="button" onclick="toggleHistoryPanel()" title="Question history">
+                    <i class="ti ti-history" aria-hidden="true"></i>
+                    <span>History</span>
+                </button>
+                <button id="ask-btn" onclick="askAI()">
+                    <span id="ask-label">Ask</span>
+                    <i class="ti ti-arrow-right"></i>
+                </button>
+                <div id="history-panel" class="history-panel" hidden>
+                    <div class="history-header">
+                        <span>Recent Questions</span>
+                        <button type="button" class="history-clear" onclick="clearHistory()">Clear</button>
+                    </div>
+                    <div id="history-list"></div>
+                </div>
+            </div>
+            <div class="output-block">
+                <p class="output-label"><i class="ti ti-code"></i>Generated Query</p>
+                <pre id="sql">Your query will appear here.</pre>
+            </div>
+            <div class="output-block">
+                <div class="results-header">
+                    <p class="output-label"><i class="ti ti-table"></i>Results<span id="result-count" class="result-count"></span></p>
+                    <button id="download-btn" class="download-btn" onclick="downloadExcel()" style="display:none;"><i class="ti ti-download"></i>Download Excel</button>
+                </div>
+                <div id="result"><p class="empty-note"><i class="ti ti-arrow-up"></i>Ask a question to see results.</p></div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <i class="ti ti-shield-lock"></i>
+        <p style="margin:0;">Built for Reports &middot; questions are answered using an AI agent connected to your database.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

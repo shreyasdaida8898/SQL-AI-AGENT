@@ -59,8 +59,6 @@ sql-ai-agent/
    DB_NAME=your_database
 
    # Choose one or more providers depending on what services/ you're using
-   ANTHROPIC_API_KEY=your_claude_key
-   OPENAI_API_KEY=your_openai_key
    OLLAMA_HOST=http://localhost:11434
    ```
    > **Never commit your `.env` file.** It's already excluded via `.gitignore`.

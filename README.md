@@ -34,8 +34,6 @@ sql-ai-agent/
 ├── lib/
 │   └── schemaIntrospect.js   # Reads DB schema so the AI knows your tables/columns
 ├── server.js                # Backend server & API routes (/ask, /confirm)
-├── package.json
-├── package-lock.json
 ├── .gitignore
 └── README.md
 ```
